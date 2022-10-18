@@ -11,22 +11,17 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Implementando KEY do site em uma variavel.
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-1^4by(7q@e^+5#nch^2sem6wr*%)1=gg01y1(*3xr1sqbro)96'
 
-# Caso TRUE ele dá os detalhes do Erro. Colocamos o getenv para tornar a DEBUG verdadeira apenas no LOCAL (Presença do .env)
-DEBUG = os.getenv('DEBUG', False)
+# Caso TRUE ele dá os detalhes do Erro. Na hora do Deploy importar o debug False.
+DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -37,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main',
 ]
 
 MIDDLEWARE = [

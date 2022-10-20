@@ -21,7 +21,7 @@ SECRET_KEY = 'django-insecure-1^4by(7q@e^+5#nch^2sem6wr*%)1=gg01y1(*3xr1sqbro)96
 # Caso TRUE ele dá os detalhes do Erro. Na hora do Deploy importar o debug False.
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

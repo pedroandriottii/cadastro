@@ -28,7 +28,8 @@
             </td>
             <td>
                 <a href="{% url 'pessoa.editar' pessoa.pk %}">Editar</a>
-                <a href="{% url 'pessoa.remover' pessoa.pk %}">Remover</a> 
+                <a href="{% url 'pessoa.remover' pessoa.pk %}">Remover</a>
+                <a href="{% url 'pessoa.contatos' pessoa.pk %}">Contatos</a> 
             </td>
         </tr>
         {% endfor %}

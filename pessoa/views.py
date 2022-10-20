@@ -66,7 +66,3 @@ def contato_remover(request, pk_pessoa, pk):
     contato = get_object_or_404(Contato, pk=pk)
     contato.delete()
     return redirect(reverse('pessoa.contatos', args=[pk_pessoa]))
-
-
-
-

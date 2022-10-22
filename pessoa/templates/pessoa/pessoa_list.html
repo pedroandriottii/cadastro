@@ -10,7 +10,6 @@
         <tr>
             <th>Nome</th>
             <th>Data de Nascimento</th>
-            <th>Ativa</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -20,16 +19,9 @@
             <td>{{ pessoa.nome_completo }}</td>
             <td>{{ pessoa.data_nascimento|date:"d/m/Y" }}</td>
             <td>
-            {% if pessoa.ativa %}
-            Sim
-            {% else %}
-            Não
-            {% endif %}
-            </td>
-            <td>
                 <a href="{% url 'pessoa.editar' pessoa.pk %}">Editar</a>
                 <a href="{% url 'pessoa.remover' pessoa.pk %}">Remover</a>
-                <a href="{% url 'pessoa.contatos' pessoa.pk %}">Contatos</a> 
+                <a href="{% url 'pessoa.animais' pessoa.pk %}">Animais</a> 
             </td>
         </tr>
         {% endfor %}

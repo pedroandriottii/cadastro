@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse
-from .models import Pessoa, Contato
-from .forms import PessoaForm, ContatoForm
+from .models import Animal, Pessoa
+from .forms import AnimalForm, PessoaForm
 
 class ListaPessoaView(ListView):
     model = Pessoa
@@ -37,32 +37,32 @@ class PessoaDeleteView(DeleteView):
     model = Pessoa
     success_url = '/pessoas/'
 
-def contatos(request, pk_pessoa):
-    contatos = Contato.objects.filter(pessoa=pk_pessoa)
-    return render(request, 'contato/contato_list.html', {'contatos': contatos, 'pk_pessoa': pk_pessoa})
+def animais(request, pk_pessoa):
+    animais = Animal.objects.filter(pessoa=pk_pessoa)
+    return render(request, 'animal/animal_list.html', {'animais': animais, 'pk_pessoa': pk_pessoa})
 
-def contato_novo(request, pk_pessoa):
-    form = ContatoForm()
+def animal_novo(request, pk_pessoa):
+    form = AnimalForm()
     if request.method == "POST":
-        form = ContatoForm(request.POST)
+        form = AnimalForm(request.POST)
         if form.is_valid():
-            contato = form.save(commit=False)
-            contato.pessoa_id = pk_pessoa;
-            contato.save()
-            return redirect(reverse('pessoa.contatos', args=[pk_pessoa]))
-    return render(request, 'contato/contato_form.html', {'form': form})
+            animal = form.save(commit=False)
+            animal.pessoa_id = pk_pessoa;
+            animal.save()
+            return redirect(reverse('pessoa.animais', args=[pk_pessoa]))
+    return render(request, 'animal/animal_form.html', {'form': form})
 
-def contato_editar(request, pk_pessoa, pk):
-    contato = get_object_or_404(Contato, pk=pk)
-    form = ContatoForm(instance=contato)
+def animal_editar(request, pk_pessoa, pk):
+    animal = get_object_or_404(Animal, pk=pk)
+    form = AnimalForm(instance=animal)
     if request.method == "POST":
-        form = ContatoForm(request.POST, instance=contato)
+        form = AnimalForm(request.POST, instance=animal)
         if form.is_valid():
             form.save()
-            return redirect(reverse('pessoa.contatos', args=[pk_pessoa]))
-    return render(request, 'contato/contato_form.html', {'form': form})
+            return redirect(reverse('pessoa.animais', args=[pk_pessoa]))
+    return render(request, 'animal/animal_form.html', {'form': form})
 
-def contato_remover(request, pk_pessoa, pk):
-    contato = get_object_or_404(Contato, pk=pk)
-    contato.delete()
-    return redirect(reverse('pessoa.contatos', args=[pk_pessoa]))
+def animal_remover(request, pk_pessoa, pk):
+    animal = get_object_or_404(Animal, pk=pk)
+    animal.delete()
+    return redirect(reverse('pessoa.animais', args=[pk_pessoa]))

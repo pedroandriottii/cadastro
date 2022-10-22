@@ -41,6 +41,10 @@ def animais(request, pk_pessoa):
     animais = Animal.objects.filter(pessoa=pk_pessoa)
     return render(request, 'animal/animal_list.html', {'animais': animais, 'pk_pessoa': pk_pessoa})
 
+def animaislist(request, pk_pessoa):
+    animais = Animal.objects.all()
+    return render(request, 'animal/animal_listtop.html', {'animais': animais, 'pk_pessoa': pk_pessoa})
+
 def animal_novo(request, pk_pessoa):
     form = AnimalForm()
     if request.method == "POST":

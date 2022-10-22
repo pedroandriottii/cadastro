@@ -1,12 +1,16 @@
+{% load static %}
 {% extends 'main/base.html' %}
 {% block content %}
-<div class="">
+
+
+<p class="text-center">
     <h1>Cadastre-se</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-primary" type="submit">Cadastrar</button>
-    </form>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+        </form>
+</p>
     <p class="text-center">Já possui conta?
         <a href="/accounts/login">Entrar</a>
     </p>

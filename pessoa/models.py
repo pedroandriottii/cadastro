@@ -10,7 +10,7 @@ class Pessoa(models.Model):
         return self.nome_completo
 
 class Animal(models.Model):
-    nome = models.CharField(max_length=256)
+    nome = models.CharField(max_length=256, verbose_name="Nome")
     tipo = models.CharField(max_length=256)
     vacina = models.BooleanField(default=False)
     descricao = models.CharField(max_length=256)

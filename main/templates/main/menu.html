@@ -4,4 +4,12 @@
     <a href="{% url 'pessoa.index' %}">Pessoas</a>
     <a href="{% url 'logout' %}">Logout</a>
 </ul>
+<ul class="text-center">
+    {% for pessoa in object_list %}
+    <tr>
+        <a href="{% url 'pessoa.animais' pessoa.pk %}">Lista de Animais</a>
+    </tr>
+    {% endfor %}
+
+</ul>
 {% endif %}

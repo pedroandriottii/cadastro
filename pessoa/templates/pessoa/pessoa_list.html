@@ -4,7 +4,8 @@
     <input type = "text" name="nome" placeholder="Buscar por nome"/>
     <input type = "submit" value="Buscar"/>
 </form>
-<a href="{% url 'pessoa.novo' %}">Novo</a>
+<a href="{% url 'pessoa.novo' %}">Novo Usuário</a>
+
 <table>
     <thead>
         <tr>
@@ -19,12 +20,13 @@
             <td>{{ pessoa.nome_completo }}</td>
             <td>{{ pessoa.data_nascimento|date:"d/m/Y" }}</td>
             <td>
-                <a href="{% url 'pessoa.editar' pessoa.pk %}">Editar</a>
-                <a href="{% url 'pessoa.remover' pessoa.pk %}">Remover</a>
-                <a href="{% url 'pessoa.animais' pessoa.pk %}">Animais</a> 
+                <a href="{% url 'pessoa.editar' pessoa.pk %}">Editar Usuário</a>
+                <a href="{% url 'pessoa.remover' pessoa.pk %}">Deletar Usuário</a>
+                 
             </td>
         </tr>
         {% endfor %}
+        
     </tbody>
 </table>
 {% endblock content %}
